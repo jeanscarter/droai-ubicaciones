@@ -1,0 +1,35 @@
+# Credenciales y configuración local sensible
+db.properties
+
+# Compilación y paquetes Maven
+target/
+dependency-reduced-pom.xml
+*.class
+
+# Logs y volcados de depuración JVM
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# Catálogo local de imágenes de productos (archivos binarios pesados)
+imagenes/*
+!imagenes/.gitkeep
+
+# Scripts de diagnóstico y utilitarios temporales locales
+check_*.ps1
+check_both.ps1
+check_pp.ps1
+check_vfp_cause.ps1
+classpath.txt
+comando.txt
+*.csv
+
+# Entornos de desarrollo e IDEs
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+.DS_Store
+Thumbs.db

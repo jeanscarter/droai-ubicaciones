@@ -1,0 +1,569 @@
+﻿[
+    {
+        "ubicacion":  "E1C208",
+        "coArt":  "4783",
+        "descripcion":  "IRINOTECAN (INOTAD 100) AMP I.V 100MG/5ML X 1",
+        "almacen":  "01 y 02",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "E1C208",
+        "coArt":  "7837",
+        "descripcion":  "ACETAMINOFEN/TRAMADOL TAB 325MG/37.5MG X 10",
+        "almacen":  "1",
+        "stock":  "52"
+    },
+    {
+        "ubicacion":  "E1C308",
+        "coArt":  "6470",
+        "descripcion":  "IRINOTECAN (INOTAD 40) AMP I.V 40MG/2ML X 1",
+        "almacen":  "2",
+        "stock":  "5"
+    },
+    {
+        "ubicacion":  "E1C308",
+        "coArt":  "6916",
+        "descripcion":  "ZOLPIDEX COMP 10MG X 10 ROWE",
+        "almacen":  "1",
+        "stock":  "28"
+    },
+    {
+        "ubicacion":  "E1C405",
+        "coArt":  "6473",
+        "descripcion":  "DOXORUBICINA AMP I.V 10MG X 1 FYDD",
+        "almacen":  "2",
+        "stock":  "8"
+    },
+    {
+        "ubicacion":  "E1C405",
+        "coArt":  "6913",
+        "descripcion":  "CLONATRIL COMP 1MG X 30 ROWE",
+        "almacen":  "1",
+        "stock":  "100"
+    },
+    {
+        "ubicacion":  "E1C505",
+        "coArt":  "7842",
+        "descripcion":  "ALPRAZOLAM TAB 1MG X 30 CALOX",
+        "almacen":  "1",
+        "stock":  "47"
+    },
+    {
+        "ubicacion":  "E1C505",
+        "coArt":  "8132",
+        "descripcion":  "BENDAMUSTINA SOL INY I.V 100MG X 1 FYDD",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "E1C606",
+        "coArt":  "6933",
+        "descripcion":  "CLONZEP TAB 0.5MG X 30 VALMORCA",
+        "almacen":  "1",
+        "stock":  "205"
+    },
+    {
+        "ubicacion":  "E1C606",
+        "coArt":  "9241",
+        "descripcion":  "CLONAZEPAM TAB 0.5MG X 30 GENCER",
+        "almacen":  "1",
+        "stock":  "61"
+    },
+    {
+        "ubicacion":  "P1I105",
+        "coArt":  "5899",
+        "descripcion":  "AMOXICILINA/AC. CLAVULANICO TAB 875/125MG X 10 (ZUZU)",
+        "almacen":  "1",
+        "stock":  "183"
+    },
+    {
+        "ubicacion":  "P1I105",
+        "coArt":  "8467",
+        "descripcion":  "AMOXICILINA/AC. CLAVULANICO TAB 875/125MG X 10 (DAC55)",
+        "almacen":  "2",
+        "stock":  "400"
+    },
+    {
+        "ubicacion":  "P1L105",
+        "coArt":  "5712",
+        "descripcion":  "BUTILBROMURO HIOSCINA/PARACETAMOL TAB X 10 H\u0026M",
+        "almacen":  "2",
+        "stock":  "226"
+    },
+    {
+        "ubicacion":  "P1L105",
+        "coArt":  "8396",
+        "descripcion":  "BIOCOR AMLO TAB 40MG/5MG X 30 MCK",
+        "almacen":  "1",
+        "stock":  "71"
+    },
+    {
+        "ubicacion":  "P2E304",
+        "coArt":  "7696",
+        "descripcion":  "CEVAX ZINC CAPS 500MG/7.5MG X 15 CALOX",
+        "almacen":  "1",
+        "stock":  "36"
+    },
+    {
+        "ubicacion":  "P2E304",
+        "coArt":  "8477",
+        "descripcion":  "CEFADROXILO TAB 500MG X 10 DAC55",
+        "almacen":  "2",
+        "stock":  "364"
+    },
+    {
+        "ubicacion":  "P2K504",
+        "coArt":  "9065",
+        "descripcion":  "CLINDOX-D INF I.V 600MG/50ML X 50ML BEHRENS",
+        "almacen":  "1",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "P2K504",
+        "coArt":  "9589",
+        "descripcion":  "CLEXANE JER PRELL S.C/I.V 20MG/0.2ML X 2 SANOFI",
+        "almacen":  "1",
+        "stock":  "10"
+    },
+    {
+        "ubicacion":  "P3A404",
+        "coArt":  "5852",
+        "descripcion":  "DORZOLAMIDA/TIMOLOL (BIOBET) GTA 2%/0.5% X 5ML",
+        "almacen":  "1",
+        "stock":  "32"
+    },
+    {
+        "ubicacion":  "P3A404",
+        "coArt":  "9124",
+        "descripcion":  "DICARVEX TAB 6.25MG X 30 PLUSANDEX",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P3C604",
+        "coArt":  "5884",
+        "descripcion":  "DIYODOHIDROXIQUINOLEINA SUSP 42MG/ML X 100ML",
+        "almacen":  "1",
+        "stock":  "57"
+    },
+    {
+        "ubicacion":  "P3C604",
+        "coArt":  "9411",
+        "descripcion":  "DICEA COMP 3MG/0.03MG X 28 ROWE",
+        "almacen":  "1",
+        "stock":  "18"
+    },
+    {
+        "ubicacion":  "P3F202",
+        "coArt":  "6060",
+        "descripcion":  "DENCORUB ICE ROLL ON X 80GR PONCE \u0026 BENZO",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P3F202",
+        "coArt":  "8207",
+        "descripcion":  "DIADEX CRM ANTIPAÑALITIS PANTENOL X 50GR",
+        "almacen":  "1",
+        "stock":  "43"
+    },
+    {
+        "ubicacion":  "P3F403",
+        "coArt":  "6661",
+        "descripcion":  "DENCORUB ICE GEL X 40GR PONCE \u0026 BENZO",
+        "almacen":  "1",
+        "stock":  "237"
+    },
+    {
+        "ubicacion":  "P3F403",
+        "coArt":  "8692",
+        "descripcion":  "DEXAMETASONA AMP I.M/I.V 4MG/2ML X 10 KMPLUS",
+        "almacen":  "1",
+        "stock":  "100"
+    },
+    {
+        "ubicacion":  "P3G401",
+        "coArt":  "7896",
+        "descripcion":  "EZOLIUM CAPS 40MG X 30 VIVAX",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P3G401",
+        "coArt":  "8489",
+        "descripcion":  "DICLOFENAC POTASICO TAB 50MG X 20 DAC55",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P3G605",
+        "coArt":  "7040",
+        "descripcion":  "ENEMA (NEMAX) ADULTO X 133ML FAHD",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P3G605",
+        "coArt":  "9396",
+        "descripcion":  "ENTEREX HEPATIC SOB VAINILLA X 110GR MEGALABS",
+        "almacen":  "1",
+        "stock":  "19"
+    },
+    {
+        "ubicacion":  "P3H105",
+        "coArt":  "7853",
+        "descripcion":  "ETORICOXIB TAB 90MG X 10 CALOX",
+        "almacen":  "1",
+        "stock":  "37"
+    },
+    {
+        "ubicacion":  "P3H105",
+        "coArt":  "8492",
+        "descripcion":  "EMPAGLIFOZINA TAB 10MG X 30 DAC55",
+        "almacen":  "2",
+        "stock":  "189"
+    },
+    {
+        "ubicacion":  "P3I201",
+        "coArt":  "5729",
+        "descripcion":  "ESPIRONOLACTONA TAB 100MG X 10 H\u0026M",
+        "almacen":  "2",
+        "stock":  "196"
+    },
+    {
+        "ubicacion":  "P3I201",
+        "coArt":  "8493",
+        "descripcion":  "ESOMEPRAZOL CAPS 40MG X 20 DAC55",
+        "almacen":  "2",
+        "stock":  "86"
+    },
+    {
+        "ubicacion":  "P4H502",
+        "coArt":  "7741",
+        "descripcion":  "LOPERAMIDA TAB 2MG X 10 ARTE MEDICO",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P4H502",
+        "coArt":  "8662",
+        "descripcion":  "KETOMIZOL CRM 2% X 15GR KIMICEG",
+        "almacen":  "1",
+        "stock":  "60"
+    },
+    {
+        "ubicacion":  "P4H502",
+        "coArt":  "9135",
+        "descripcion":  "LITONATE TAB 30MG X 30 BIOTECH",
+        "almacen":  "1",
+        "stock":  "48"
+    },
+    {
+        "ubicacion":  "P5E105",
+        "coArt":  "6899",
+        "descripcion":  "NEFROTAL COMP 50MG X 30 ROWE",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P5E105",
+        "coArt":  "8738",
+        "descripcion":  "METFORMINA TAB 500MG X 30 GENCER",
+        "almacen":  "1",
+        "stock":  "70"
+    },
+    {
+        "ubicacion":  "P5E203",
+        "coArt":  "8052",
+        "descripcion":  "MELATONINA/VIT B6/VALERIANA CAPS X 60 WALIFE",
+        "almacen":  "2",
+        "stock":  "30"
+    },
+    {
+        "ubicacion":  "P5E203",
+        "coArt":  "9413",
+        "descripcion":  "NEFROTAL AMLO COMP 50MG/5MG X 30 ROWE",
+        "almacen":  "1",
+        "stock":  "12"
+    },
+    {
+        "ubicacion":  "P5L104",
+        "coArt":  "7918",
+        "descripcion":  "PREDNISONA TAB 5MG X 10 CALOX",
+        "almacen":  "1",
+        "stock":  "432"
+    },
+    {
+        "ubicacion":  "P5L104",
+        "coArt":  "8173",
+        "descripcion":  "PROBIOTICOS AD GTA (PROMIX-D) X 8ML ZAKI",
+        "almacen":  "2",
+        "stock":  "30"
+    },
+    {
+        "ubicacion":  "P6B104",
+        "coArt":  "5756",
+        "descripcion":  "RIVAROXABAN TAB 20MG X 28 H\u0026M",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P6B104",
+        "coArt":  "6432",
+        "descripcion":  "RIVAPROF TAB 20MG X 30 VALMORCA",
+        "almacen":  "1",
+        "stock":  "24"
+    },
+    {
+        "ubicacion":  "P6E303",
+        "coArt":  "5971",
+        "descripcion":  "SECNIDEX TAB 500MG X 4 PLUSANDEX",
+        "almacen":  "1",
+        "stock":  "8"
+    },
+    {
+        "ubicacion":  "P6E303",
+        "coArt":  "6820",
+        "descripcion":  "TIMOLOL (OFTALTIM) SOL OFT 0.50% X 10ML",
+        "almacen":  "2",
+        "stock":  "60"
+    },
+    {
+        "ubicacion":  "P6J603",
+        "coArt":  "5840",
+        "descripcion":  "VITAMINA C TAB 1000MG X 60 PHARMACORP",
+        "almacen":  "2",
+        "stock":  "201"
+    },
+    {
+        "ubicacion":  "P6J603",
+        "coArt":  "8579",
+        "descripcion":  "LOSARTAN POT/HIDROCLOROTIAZIDA TAB X 30",
+        "almacen":  "01 y 02",
+        "stock":  "100"
+    },
+    {
+        "ubicacion":  "P6J603",
+        "coArt":  "8961",
+        "descripcion":  "VITAMIN A CAPS 10.000U.I X 100 NOW",
+        "almacen":  "1",
+        "stock":  "11"
+    },
+    {
+        "ubicacion":  "P7A505",
+        "coArt":  "4666",
+        "descripcion":  "BAÑO LIQ JOHNSON BABY CABEZA A PIES X 200ML",
+        "almacen":  "1",
+        "stock":  "15"
+    },
+    {
+        "ubicacion":  "P7A505",
+        "coArt":  "7143",
+        "descripcion":  "JABON NATURAL DE GLICERINA X 750ML INST ESPAÑOL",
+        "almacen":  "1",
+        "stock":  "11"
+    },
+    {
+        "ubicacion":  "P7B201",
+        "coArt":  "4610",
+        "descripcion":  "COLONIA CHICCO X 220ML PHARSANA",
+        "almacen":  "1",
+        "stock":  "27"
+    },
+    {
+        "ubicacion":  "P7B201",
+        "coArt":  "9303",
+        "descripcion":  "ALOE VERA LOCION HIDRATANTE X 100ML INST ESPAÑOL",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P7F202",
+        "coArt":  "8754",
+        "descripcion":  "PILAS BOTON LITIO 2032 BLIST X 5 PHILIPS",
+        "almacen":  "2",
+        "stock":  "7"
+    },
+    {
+        "ubicacion":  "P7F202",
+        "coArt":  "8756",
+        "descripcion":  "PILAS BOTON LITIO 2025 BLIST X 5 PHILIPS",
+        "almacen":  "2",
+        "stock":  "6"
+    },
+    {
+        "ubicacion":  "P7H503",
+        "coArt":  "4677",
+        "descripcion":  "ENJ BUCAL LISTERINE COOL MINT ZERO X 500ML",
+        "almacen":  "1",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P7H503",
+        "coArt":  "7148",
+        "descripcion":  "TALCO BEBE AVENA/MANGO X 85GR CERO",
+        "almacen":  "1",
+        "stock":  "13"
+    },
+    {
+        "ubicacion":  "P7J501",
+        "coArt":  "5275",
+        "descripcion":  "TALCO BORICADO PVO X 200GR BIOFARCO",
+        "almacen":  "2",
+        "stock":  "3"
+    },
+    {
+        "ubicacion":  "P7J501",
+        "coArt":  "6027",
+        "descripcion":  "SOLUHEX SOL JABONOSA X 120ML INTRA",
+        "almacen":  "1",
+        "stock":  "163"
+    },
+    {
+        "ubicacion":  "P8B203",
+        "coArt":  "9010",
+        "descripcion":  "MUÑEQUERA NEOPREN FERULA DER TALLA M",
+        "almacen":  "2",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "P8B203",
+        "coArt":  "9011",
+        "descripcion":  "MUÑEQUERA NEOPREN FERULA DER TALLA L",
+        "almacen":  "2",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "P8B502",
+        "coArt":  "5279",
+        "descripcion":  "CLORURO DE MAGNESIO SOL 3.33% FRESA X 1LTS",
+        "almacen":  "2",
+        "stock":  "122"
+    },
+    {
+        "ubicacion":  "P8B502",
+        "coArt":  "9446",
+        "descripcion":  "ALCOHOL ANTISEPTICO 70% X 240ML ALNA",
+        "almacen":  "1",
+        "stock":  "75"
+    },
+    {
+        "ubicacion":  "P8C202",
+        "coArt":  "8993",
+        "descripcion":  "CABESTRILLO C/BOLSA ADULTO DISPROMED",
+        "almacen":  "2",
+        "stock":  "6"
+    },
+    {
+        "ubicacion":  "P8C202",
+        "coArt":  "8996",
+        "descripcion":  "CABESTRILLO C/BOLSA NIÑO DISPROMED",
+        "almacen":  "2",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "P8E203",
+        "coArt":  "5527",
+        "descripcion":  "BASTON PLEGABLE SURTIDOS 1 PUNTO RITEX",
+        "almacen":  "1",
+        "stock":  "14"
+    },
+    {
+        "ubicacion":  "P8E203",
+        "coArt":  "8523",
+        "descripcion":  "CINTA DE TESTIGO EO (OXIDO ETILENO) 19MM",
+        "almacen":  "1",
+        "stock":  "4"
+    },
+    {
+        "ubicacion":  "P8I101",
+        "coArt":  "5656",
+        "descripcion":  "SONDA DE SUCCION CON CONTROL #12 X 1 SEBIS",
+        "almacen":  "1",
+        "stock":  "23"
+    },
+    {
+        "ubicacion":  "P8I101",
+        "coArt":  "7761",
+        "descripcion":  "JERINGA 5CC 21G X 1 1/2 X 100 SEBIS",
+        "almacen":  "1",
+        "stock":  "24"
+    },
+    {
+        "ubicacion":  "P8J205",
+        "coArt":  "5086",
+        "descripcion":  "ADHESIVO SEDA 3 X 10YDS X 6 SAGLAM",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P8J205",
+        "coArt":  "9504",
+        "descripcion":  "SUTURA VICRYL PLUS 3-0 (REF 316) X 1 ETHICON",
+        "almacen":  "1",
+        "stock":  "9"
+    },
+    {
+        "ubicacion":  "P9B104",
+        "coArt":  "8814",
+        "descripcion":  "SONDA FOLEY 2 VIAS #18 X 10 SAGLAM",
+        "almacen":  "2",
+        "stock":  "16"
+    },
+    {
+        "ubicacion":  "P9B104",
+        "coArt":  "8911",
+        "descripcion":  "CATETER (JELCO) I.V # 20 X 50 ITN",
+        "almacen":  "2",
+        "stock":  "1"
+    },
+    {
+        "ubicacion":  "P9B302",
+        "coArt":  "5634",
+        "descripcion":  "GUANTES DE NITRILO NEGRO TALLA L X 100",
+        "almacen":  "1",
+        "stock":  "20"
+    },
+    {
+        "ubicacion":  "P9B302",
+        "coArt":  "9442",
+        "descripcion":  "ALGODÓN ROLLO X 25GR ALGOBAP",
+        "almacen":  "1",
+        "stock":  "99"
+    },
+    {
+        "ubicacion":  "P9C201",
+        "coArt":  "9312",
+        "descripcion":  "MACROGOTEROS CON Y 20 GOTAS X 25 SEBIS",
+        "almacen":  "1",
+        "stock":  "39"
+    },
+    {
+        "ubicacion":  "P9C201",
+        "coArt":  "9477",
+        "descripcion":  "JERINGA 3CC 21G X 1 1/2 X 100 FLEXMED",
+        "almacen":  "2",
+        "stock":  "126"
+    },
+    {
+        "ubicacion":  "PULMON",
+        "coArt":  "9398",
+        "descripcion":  "ENTEREX DIABETIC PVO VAINILLA X 400GR",
+        "almacen":  "1",
+        "stock":  "5"
+    },
+    {
+        "ubicacion":  "PULMON",
+        "coArt":  "9399",
+        "descripcion":  "ENTEREX TOTAL PVO VAINILLA X 400GR",
+        "almacen":  "1",
+        "stock":  "2"
+    },
+    {
+        "ubicacion":  "PULMON",
+        "coArt":  "9400",
+        "descripcion":  "ENTEREX MAX PVO VAINILLA X 400GR",
+        "almacen":  "1",
+        "stock":  "1"
+    }
+]

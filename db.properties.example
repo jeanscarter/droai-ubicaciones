@@ -1,0 +1,9 @@
+# Configuración de Conexión a Base de Datos SQL Server (Profit Plus)
+DB_SERVER=localhost
+DB_PORT=1433
+DB_DATABASE=DROA_A
+DB_USER=usuario_sql
+DB_PASSWORD=clave_sql
+
+# Puerto del Servidor Web Embebido
+WEB_PORT=8085

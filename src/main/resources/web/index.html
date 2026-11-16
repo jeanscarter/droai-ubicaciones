@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DroUbicaciones">
+    <title>DroUbicaciones Web — Gestión de Ubicaciones Profit Plus</title>
+    <link rel="stylesheet" href="style.css?v=3.5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js" defer></script>
+</head>
+
+<body>
+    <div id="app" class="app-container">
+        <!-- ── 1. UNIFIED HEADER NAVBAR ── -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="brand-text-block">
+                    <h1 class="brand-title">DroUbicaciones <span class="badge-web">Web</span></h1>
+                    <span class="db-pill" id="lblServerInfo">Profit DROA_A</span>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <div class="user-pill-tag">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span id="lblHeaderUser">Usuario: admin</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button type="button" id="btnOpenConflictosModal" class="btn btn-action-conflicto"
+                    title="Resolver Ubicaciones con más de 1 Producto">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                        </path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <span>Conflictos (+1)</span>
+                    <span id="badgeConflictosCount" class="badge-count-conflicto">0</span>
+                </button>
+                <button type="button" id="btnOpenQrModal" class="btn btn-action-mobile-qr"
+                    title="Conectar desde el Teléfono Móvil (Código QR)">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                    <span>Móvil QR</span>
+                </button>
+                <button type="button" id="btnOpenAsignarModal" class="btn btn-action-asignar"
+                    title="Abrir Asignación Rápida (F2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>Asignar Ubicación (F2)</span>
+                </button>
+                <button type="button" id="btnReloadPage" class="btn btn-action-limpiar"
+                    title="Limpiar pantalla y reiniciar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                    <span>Limpiar</span>
+                </button>
+                <button id="btnThemeToggle" class="btn-icon" title="Cambiar Tema Oscuro / Claro"
+                    aria-label="Cambiar Tema">
+                    <svg id="iconSun" class="icon-theme" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg id="iconMoon" class="icon-theme hidden" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- ── 2. MAIN CONTENT ── -->
+        <main class="app-main">
+            <!-- SECCIÓN ESCÁNER / BÚSQUEDA MULTIVALENTE -->
+            <section class="card card-scanner">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Búsqueda Multivalente (Nombre, Código, Barras o Pasillo)
+                    </h2>
+                </div>
+
+                <form id="formSearch" class="search-box-wrapper" onsubmit="return false;">
+                    <div class="input-icon-group">
+                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="txtSearch" class="form-input input-lg"
+                            placeholder="Buscar por Ubicación (ej: P5D1), Código, Barras o Nombre..." autocomplete="off"
+                            autofocus>
+                        <button type="button" id="btnClearSearchInput" class="btn-input-clear hidden"
+                            title="Borrar texto">&times;</button>
+                    </div>
+
+                    <button type="button" id="btnScanCamera" class="btn btn-secondary btn-lg btn-camera-trigger"
+                        title="Escanear Código o Estante con Cámara">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <span class="btn-text-mobile">Cámara</span>
+                    </button>
+
+                    <button type="submit" id="btnSearch" class="btn btn-primary btn-lg" title="Buscar en Profit Plus">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Buscar</span>
+                    </button>
+
+                    <button type="button" id="btnClearSearchForm" class="btn btn-clear-search btn-lg"
+                        title="Limpiar búsqueda y resultados (X)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- LISTA DE RESULTADOS MÚLTIPLES -->
+                <div id="pnlResultsList" class="results-list-container hidden">
+                    <div class="results-list-header">
+                        <span id="lblResultsCount">Resultados encontrados: 0</span>
+                        <button type="button" id="btnCloseResults" class="btn-close-results">&times;</button>
+                    </div>
+                    <div id="resultsItemsWrapper" class="results-items-grid"></div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DETALLE Y UBICACIONES -->
+            <div class="grid-two-columns">
+                <!-- DETALLE DEL PRODUCTO -->
+                <section class="card card-product">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            Detalles del Producto
+                        </h2>
+                    </div>
+
+                    <div class="product-card-content">
+                        <!-- IMAGEN DEL PRODUCTO CON ZOOM ON CLICK -->
+                        <div class="product-image-wrapper" id="pnlProductImageWrapper">
+                            <div class="product-image-container">
+                                <img id="imgProductDetail" class="product-image-display"
+                                    src="/api/imagen?id=placeholder" alt="Foto del Producto" loading="lazy" />
+                                <div id="lblImageStatus" class="image-status-pill hidden">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span id="lblImageStatusText">Foto Catálogo</span>
+                                </div>
+                                <button type="button" id="btnCambiarFoto" class="btn-change-photo"
+                                    title="Cambiar Foto por enlace web o archivo">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2">
+                                        <path
+                                            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                        </path>
+                                        <circle cx="12" cy="13" r="4"></circle>
+                                    </svg>
+                                    <span>Cambiar Foto</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="product-info-body">
+                            <div class="info-badges">
+                                <span class="badge badge-code" id="lblCode">Código: ---</span>
+                                <span class="badge badge-barcode" id="lblBarcode">Barras: ---</span>
+                            </div>
+
+                            <h3 class="product-description" id="lblDescription">Escanee o busque un producto o pasillo
+                                para
+                                comenzar...</h3>
+
+                            <div class="product-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Marca / Línea</span>
+                                    <span class="meta-value" id="lblBrandLine">---</span>
+                                </div>
+                                    <div class="meta-item meta-item-stock">
+                                        <span class="meta-label">Existencia / Stock</span>
+                                        <div class="stock-badges-grid" id="pnlStockBadges">
+                                            <div class="stock-badge-pill stock-badge-disp" id="pnlStockDisp"
+                                                title="Stock Disponible para Venta y Despacho">
+                                                <span class="stock-badge-dot dot-green"></span>
+                                                <span class="stock-badge-title">Venta:</span>
+                                                <strong class="stock-badge-num" id="lblStock">0.00</strong>
+                                            </div>
+                                            <div class="stock-badge-pill stock-badge-averia hidden" id="pnlStockAveria"
+                                                title="Mercancía en Almacén de Averías (Dañado/Roto)">
+                                                <span class="stock-badge-dot dot-amber"></span>
+                                                <span class="stock-badge-title">Averías:</span>
+                                                <strong class="stock-badge-num" id="lblStockAveria">0.00</strong>
+                                            </div>
+                                            <div class="stock-badge-pill stock-badge-vencido hidden"
+                                                id="pnlStockVencido" title="Mercancía Vencida (Almacenes VP/VC)">
+                                                <span class="stock-badge-dot dot-purple"></span>
+                                                <span class="stock-badge-title">Vencidos:</span>
+                                                <strong class="stock-badge-num" id="lblStockVencido">0.00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Alerta de Averías -->
+                                <div id="pnlAveriaAlert" class="alert-box alert-averia-box hidden">
+                                    <div class="alert-box-header">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.2">
+                                            <path
+                                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                            </path>
+                                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                        </svg>
+                                        <span id="lblAveriaAlertTitle">⚠️ Mercancía en Averías (AV)</span>
+                                    </div>
+                                    <p id="lblAveriaAlertText" class="alert-box-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                <!-- VISUALIZACIÓN DE UBICACIONES EN ALMACÉN -->
+                <section class="card card-locations-view">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z">
+                                </path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Ubicación en Almacén
+                        </h2>
+                    </div>
+
+                    <div class="locations-view-body">
+                        <!-- ESTANTE / UBICACIÓN ACTUAL -->
+                        <div class="ubi-hero-card" id="pnlUbiHeroCard">
+                            <div class="ubi-hero-badge">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>UBICACIÓN ACTUAL</span>
+                            </div>
+                            <div class="ubi-hero-shelf" id="lblUbiActualDisplay">---</div>
+                            <div class="ubi-hero-status" id="lblUbiStatus">Consulte o escanee un producto</div>
+                        </div>
+
+                        <!-- ALERTA DE CONFLICTO (+1 PRODUCTO EN ESTE ESTANTE) -->
+                        <div id="pnlConflictoDetectado" class="conflicto-detected-banner hidden">
+                            <div class="conflicto-banner-icon">⚠️</div>
+                            <div class="conflicto-banner-body">
+                                <strong id="lblConflictoTitulo">¡Estante con conflicto detectado!</strong>
+                                <span id="lblConflictoDetalle">Hay varios productos asignados a este mismo
+                                    estante.</span>
+                            </div>
+                            <button type="button" id="btnResolverConflictoDirecto"
+                                class="btn btn-sm btn-action-conflicto-directo">
+                                Resolver Conflicto
+                            </button>
+                        </div>
+
+                        <!-- UBICACIÓN ANTERIOR (HISTORIAL) -->
+                        <div class="ubi-prev-card">
+                            <div class="ubi-prev-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="ubi-prev-info">
+                                <span class="ubi-prev-label">Ubicación Anterior (Estuvo en):</span>
+                                <strong class="ubi-prev-shelf" id="lblUbiAnteriorDisplay">---</strong>
+                            </div>
+                        </div>
+
+                        <!-- ACCIÓN PRINCIPAL: MODIFICAR EN ASIGNAR UBICACIÓN -->
+                        <div class="ubi-cta-container">
+                            <button type="button" id="btnEditLocationMain" class="btn btn-action-asignar-product"
+                                disabled>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                <span id="lblBtnEditLocationText">Modificar en "Asignar Ubicación" (F2)</span>
+                            </button>
+                            <p class="ubi-cta-hint">Presione <kbd>F2</kbd> o haga clic para cambiar el estante de este
+                                producto.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SECCIÓN HISTORIAL -->
+            <section class="card card-history">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Historial de Ubicaciones Modificadas en la Sesión
+                    </h2>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Código</th>
+                                <th>Descripción</th>
+                                <th>Ubicación Actual</th>
+                                <th>Ubicación Anterior</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblHistoryBody">
+                            <tr class="empty-row">
+                                <td colspan="6">No se han realizado modificaciones en esta sesión.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- ── 3. MODAL ASIGNAR UBICACIÓN (Rápido estilo pantalla vieja) ── -->
+        <div id="modalAsignarUbicacion" class="modal-overlay hidden">
+            <div class="modal-asignar-card">
+                <div class="sheet-grabber"></div>
+                <div class="modal-asignar-header">
+                    <div class="modal-brand">
+                        <div class="brand-triangle-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L1 21h22L12 2zm0 4.5l7.5 13H4.5L12 6.5z" />
+                            </svg>
+                        </div>
+                        <h2 class="modal-asignar-title">Asignar Ubicacion</h2>
+                    </div>
+                    <button type="button" id="btnCloseAsignarModal" class="btn-close-modal"
+                        title="Regresar (Esc)">&times;</button>
+                </div>
+
+                <form id="formAsignarModal" class="modal-asignar-body" onsubmit="return false;">
+                    <!-- 1. CODIGO DE BARRA PROD (Focus principal) -->
+                    <div class="form-group-asignar">
+                        <label for="txtAsignarBarcode" class="label-asignar">CÓDIGO DE BARRA / PRODUCTO</label>
+                        <div class="input-with-action">
+                            <input type="text" id="txtAsignarBarcode" class="input-asignar input-focus-scanner"
+                                placeholder="CODIGO DE BARRA PROD" autocomplete="off">
+                            <button type="button" id="btnAsignarCameraBarcode" class="btn btn-secondary btn-icon-only"
+                                title="Escanear con Cámara">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                    </path>
+                                    <circle cx="12" cy="13" r="4"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. UBICACION -->
+                    <div class="form-group-asignar">
+                        <label for="txtAsignarUbi" class="label-asignar">Ubicacion</label>
+                        <div class="input-with-action">
+                            <input type="text" id="txtAsignarUbi" class="input-asignar input-ubi-highlight"
+                                placeholder="UBICACION" autocomplete="off">
+                            <button type="button" id="btnAsignarCameraUbi" class="btn btn-secondary btn-icon-only"
+                                title="Escanear Estante con Cámara">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                    </path>
+                                    <circle cx="12" cy="13" r="4"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Alerta estante ocupado -->
+                        <div id="pnlAsignarUbiOcupada" class="alert-box alert-warning-box hidden">
+                            <div class="alert-box-header">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                    </path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                <span>⚠️ Estante ocupado</span>
+                            </div>
+                            <p id="lblAsignarUbiOcupadaText" class="alert-box-text"></p>
+                            <p class="alert-box-hint">Al guardar, este producto tomará el estante y el anterior quedará
+                                liberado automáticamente (sin duplicidad).</p>
+                        </div>
+                    </div>
+
+                    <!-- VISTA PREVIA VISUAL DE LA MEDICINA -->
+                    <div id="pnlModalImagePreview" class="modal-product-preview-bar hidden">
+                        <div class="modal-thumb-box">
+                            <img id="imgModalProduct" class="modal-product-thumb" src="/api/imagen?id=placeholder"
+                                alt="Foto Medicina" loading="lazy">
+                        </div>
+                        <div class="modal-preview-info">
+                            <span class="modal-preview-title" id="lblModalPreviewDesc">---</span>
+                            <div class="modal-preview-badges">
+                                <span class="badge badge-code" id="lblModalPreviewCode">CÓD: ---</span>
+                                <span class="badge badge-barcode" id="lblModalPreviewBarcode">BARRAS: ---</span>
+                                <span class="badge badge-stock" id="lblModalPreviewStock">STOCK: 0.00</span>
+                                <span class="badge badge-averia hidden" id="lblModalPreviewAveria">⚠️ AVERÍA: 0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alerta modal si el producto tiene stock en avería -->
+                    <div id="pnlModalAveriaWarn" class="alert-box alert-averia-box hidden">
+                        <div class="alert-box-header">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <span id="lblModalAveriaWarnTitle">⚠️ Alerta de Averías</span>
+                        </div>
+                        <p id="lblModalAveriaWarnText" class="alert-box-text"></p>
+                    </div>
+
+                    <!-- Campos técnicos de datos para compatibilidad -->
+                    <div class="hidden">
+                        <input type="text" id="txtAsignarDesc" readonly>
+                        <input type="text" id="txtAsignarCodigo" readonly>
+                        <input type="text" id="txtAsignarAlmacen" value="02" readonly>
+                        <input type="text" id="txtAsignarStock" value="0.00" readonly>
+                    </div>
+
+                    <!-- Botones Guardar y Regresar -->
+                    <div class="modal-asignar-actions">
+                        <button type="button" id="btnAsignarGuardar" class="btn-modal-guardar" disabled>
+                            <span>Guardar</span>
+                        </button>
+                        <button type="button" id="btnAsignarRegresar" class="btn-modal-regresar">
+                            <span>Regresar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ── 4. MODAL CÁMARA ── -->
+        <div id="modalCamera" class="modal-overlay hidden">
+            <div class="modal-camera-card">
+                <div class="modal-camera-header">
+                    <div class="modal-camera-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <span id="lblCameraTargetTitle">Escáner de Cámara En Vivo</span>
+                    </div>
+                    <button type="button" id="btnCloseCamera" class="btn-close-modal">&times;</button>
+                </div>
+                <div class="modal-camera-body">
+                    <div id="cameraReader"></div>
+                    <p class="camera-hint">Apunte la cámara al código de barras del producto o a la etiqueta del estante
+                    </p>
+                </div>
+                <div class="modal-camera-footer">
+                    <button type="button" id="btnCancelCamera" class="btn btn-secondary btn-full">Cerrar Cámara</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 5. MODAL AUDITOR Y RESOLUCIÓN DE CONFLICTOS (+1 PRODUCTO) ── -->
+        <div id="modalConflictos" class="modal-overlay hidden">
+            <div class="modal-content modal-conflictos-content">
+                <div class="sheet-grabber"></div>
+                <div class="modal-header modal-conflictos-header">
+                    <div class="modal-title-with-icon">
+                        <div class="icon-bubble icon-bubble-warning">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="modal-title">Corrector de Ubicaciones con más de 1 Producto</h3>
+                            <p class="modal-subtitle">Desaloje los productos sobrantes o reasígnelos a su ubicación real
+                            </p>
+                        </div>
+                    </div>
+                    <button type="button" id="btnCloseConflictosModal" class="btn-close-modal">&times;</button>
+                </div>
+
+                <div class="modal-conflictos-split">
+                    <!-- PANEL IZQUIERDO: LISTA DE ESTANTES CON CONFLICTO -->
+                    <div class="conflictos-sidebar">
+                        <div class="conflictos-tabs">
+                            <button type="button" id="tabConflictosExcel" class="btn-conflict-tab active">
+                                📑 Excel Prioritario (<span id="lblCountExcelTab">0</span>)
+                            </button>
+                            <button type="button" id="tabConflictosAll" class="btn-conflict-tab">
+                                🏬 Todo Almacén (<span id="lblCountAllTab">0</span>)
+                            </button>
+                        </div>
+
+                        <div class="conflictos-search-box">
+                            <input type="text" id="txtSearchConflictos" class="form-input input-sm"
+                                placeholder="Filtrar estante (ej: E1, P2)...">
+                        </div>
+
+                        <div class="conflictos-list-container" id="listConflictosUbis">
+                            <!-- Items dinámicos de estantes -->
+                        </div>
+                    </div>
+
+                    <!-- PANEL DERECHO: PRODUCTOS EN CONFLICTO PARA EL ESTANTE SELECCIONADO -->
+                    <div class="conflictos-main">
+                        <div class="conflictos-shelf-header" id="pnlShelfHeader">
+                            <div class="shelf-header-left">
+                                <button type="button" id="btnConflictoBackMobile"
+                                    class="btn btn-sm btn-conflict-back-mobile" title="Volver a la lista de estantes">
+                                    ← Lista de Estantes
+                                </button>
+                                <div>
+                                    <span class="shelf-label">ESTANTE EN REVISIÓN:</span>
+                                    <h2 class="shelf-name" id="lblConflictoShelfName">---</h2>
+                                </div>
+                            </div>
+                            <div class="shelf-header-badge" id="lblConflictoShelfBadge">
+                                Seleccione un estante de la lista
+                            </div>
+                        </div>
+
+                        <div class="conflictos-instructions">
+                            💡 <strong>Instrucciones:</strong> Elija cuál producto realmente va en este estante y haga
+                            clic en
+                            <span class="badge-tag-mantener">Mantener Aquí</span>. Los demás productos quedarán
+                            liberados automáticamente (guardando el estante en su historial).
+                        </div>
+
+                        <div class="conflictos-products-grid" id="containerConflictoProductos">
+                            <div class="conflictos-empty-state">
+                                👈 Seleccione un estante de la lista izquierda para ver los productos asignados y
+                                resolver el conflicto.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer modal-conflictos-footer">
+                    <button type="button" id="btnCloseConflictosFooter" class="btn btn-secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 6. MODAL CAMBIAR FOTO DEL PRODUCTO (URL O ARCHIVO) ── -->
+        <div id="modalCambiarFoto" class="modal-overlay hidden">
+            <div class="modal-content modal-photo-content">
+                <div class="sheet-grabber"></div>
+                <div class="modal-header">
+                    <div class="modal-title-with-icon">
+                        <div class="icon-bubble">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                </path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="modal-header-text">
+                            <h3 class="modal-title">Actualizar Foto</h3>
+                            <p class="modal-subtitle" id="lblModalPhotoSub">Pegue una URL web o suba una foto</p>
+                        </div>
+                    </div>
+                    <button type="button" id="btnCloseModalPhoto" class="btn-close-modal"
+                        title="Cerrar">&times;</button>
+                </div>
+                <div class="modal-body modal-photo-body">
+                    <div class="photo-preview-wrapper">
+                        <img id="imgNewPhotoPreview" src="/api/imagen?id=placeholder" alt="Vista Previa de Foto">
+                        <div class="photo-preview-badge">Vista Previa</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="txtPhotoUrl">
+                            🌐 Opción 1: Enlace / URL web de la imagen:
+                        </label>
+                        <div class="photo-url-row">
+                            <input type="url" id="txtPhotoUrl" class="form-input"
+                                placeholder="https://ejemplo.com/foto.jpg" autocomplete="off">
+                            <button type="button" id="btnPreviewPhotoUrl" class="btn btn-secondary">Probar</button>
+                        </div>
+                        <span class="field-hint">Pegue el enlace directo de internet (.jpg, .png o .webp).</span>
+                    </div>
+
+                    <div class="photo-or-divider">
+                        <span>O SUBIR FOTO DEL TELÉFONO</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            📁 Opción 2: Foto de su galería o cámara:
+                        </label>
+                        <label for="filePhotoUpload" class="btn-custom-file-upload">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span id="lblFileChosen">Elegir de Galería o Tomar Foto</span>
+                        </label>
+                        <input type="file" id="filePhotoUpload" class="hidden-file-input"
+                            accept="image/jpeg,image/png,image/webp">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCancelModalPhoto" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" id="btnSaveModalPhoto" class="btn btn-primary">
+                        💾 Guardar Nueva Foto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 7. MODAL CONECTAR DESDE EL TELÉFONO MÓVIL (QR) ── -->
+        <div id="modalQrConectar" class="modal-overlay hidden">
+            <div class="modal-content modal-qr-content">
+                <div class="sheet-grabber"></div>
+                <div class="modal-header">
+                    <div class="modal-title-with-icon">
+                        <div class="icon-bubble icon-bubble-blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="modal-title">Usar en Teléfono Móvil</h3>
+                            <p class="modal-subtitle">Escanee con la cámara de su smartphone</p>
+                        </div>
+                    </div>
+                    <button type="button" id="btnCloseQrModal" class="btn-close-modal">&times;</button>
+                </div>
+                <div class="modal-body modal-qr-body">
+                    <div class="qr-container-card">
+                        <div class="qr-code-box">
+                            <img id="imgQrCode" alt="Código QR DroUbicaciones" src="" class="qr-image" />
+                        </div>
+                        <div class="qr-badge-wifi">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                            </svg>
+                            <span>Conéctese a la Wi-Fi del Almacén</span>
+                        </div>
+                    </div>
+
+                    <div class="qr-instructions">
+                        <div class="qr-step">
+                            <span class="step-num">1</span>
+                            <span class="step-text">Conecte su teléfono a la misma red Wi-Fi del almacén.</span>
+                        </div>
+                        <div class="qr-step">
+                            <span class="step-num">2</span>
+                            <span class="step-text">Abra la cámara del teléfono y apunte al código QR superior.</span>
+                        </div>
+                        <div class="qr-step">
+                            <span class="step-num">3</span>
+                            <span class="step-text">Toque el enlace emergente o abra estas direcciones:</span>
+                        </div>
+                    </div>
+
+                    <div class="qr-url-card">
+                        <div class="qr-url-item">
+                            <div class="url-info">
+                                <span class="url-badge">⚡ Enlace Rápido (HTTP)</span>
+                                <code id="lblQrUrlHttp">http://172.16.0.71:8085</code>
+                            </div>
+                            <button type="button" id="btnCopyUrlHttp" class="btn btn-sm btn-secondary"
+                                title="Copiar enlace">
+                                Copiar
+                            </button>
+                        </div>
+                        <div class="qr-url-item">
+                            <div class="url-info">
+                                <span class="url-badge url-badge-secure">🔒 Enlace con Escáner En Vivo (HTTPS)</span>
+                                <code id="lblQrUrlHttps">https://172.16.0.71:8444</code>
+                            </div>
+                            <button type="button" id="btnCopyUrlHttps" class="btn btn-sm btn-secondary"
+                                title="Copiar enlace">
+                                Copiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCloseQrFooter" class="btn btn-primary btn-full">Listo / Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 8. BARRA DE NAVEGACIÓN MÓVIL PERSISTENTE (Mobile First Bottom Bar) ── -->
+        <nav id="mobileBottomNav" class="mobile-bottom-nav">
+            <button type="button" class="nav-item" id="navBtnBuscar" title="Ir al Buscador">
+                <div class="nav-icon-wrap">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <span class="nav-label">Buscar</span>
+            </button>
+
+            <button type="button" class="nav-item nav-item-prominent" id="navBtnAsignar" title="Asignar Ubicación (F2)">
+                <div class="nav-floating-bubble">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </div>
+                <span class="nav-label">Asignar</span>
+            </button>
+
+            <button type="button" class="nav-item" id="navBtnConflictos" title="Resolver Conflictos de Ubicación (+1)">
+                <div class="nav-icon-wrap">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                        </path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <span id="navConflictosBadge" class="nav-badge hidden">0</span>
+                </div>
+                <span class="nav-label">Conflictos</span>
+            </button>
+
+            <button type="button" class="nav-item" id="navBtnQr" title="Ver Conexión Móvil">
+                <div class="nav-icon-wrap">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <span class="nav-label">Móvil QR</span>
+            </button>
+        </nav>
+
+        <!-- TOAST NOTIFICATIONS -->
+        <div id="toastContainer" class="toast-container"></div>
+
+        <!-- INPUT CÁMARA NATIVA HTTP FALLBACK -->
+        <input type="file" id="fileCameraInput" accept="image/*" capture="environment" class="hidden">
+    </div>
+
+    <script src="app.js?v=3.5"></script>
+</body>
+
+</html>
